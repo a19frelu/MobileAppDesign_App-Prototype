@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stepster - one step at a time</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="https://raw.githack.com/HGustavs/Shaker.js/master/shaker.js"></script>
+    <script>
+        function showPage(p) {
+          pageArr = document.getElementsByClassName("page");
+          for (let i = 0; i < pageArr.length; i++) {
+            let page = pageArr[i];
+            page.style.display = "none";
+          }
+          document.getElementById("page" + p).style.display = "block";
+
+        var stegraknare = 0;
+        var element = document.getElementById("steps");
+
+        shaker.on("step", function (o) {
+          stegraknare ++;
+          document.getElementById("printout").innerHTML = stegraknare;
+          console.log(stegraknare);
+          if (stegraknare>= 10) {
+            document.getElementById("fullscreen").style.backgroundColor= "green";
+          }
+        });
+        }
+    </script>
+    <style>
+      @media screen and (orientation: portrait){
+        html {
+          height: 100%;
+        }
+        body{
+          background-repeat: no-repeat;
+        }
+        #fullScreen{
+          height: 78vh;
+          border: 1px solid purple;
+          /*background-image: radial-gradient(white 40%, #ff4800);*/
+          background-color: blue;
+        }
+        #steps{
+          vertical-align: middle;
+          text-align: center;
+          font-style: italic;
+          font-size: 40px;
+          border: 1px solid green;
+          margin-top: 180px;
+        }
+        #printout{
+          border: 1px solid red;
+          margin-top: 20px;
+          font-style: normal;
+          font-weight: bold;
+          font-family: monospace;
+          font-size: 80px;
+        }
+      }
+      @media screen and (orientation: landscape){
+        html {
+          height: 100%;
+        }
+        body{
+          background-image: linear-gradient(white 30%, #81ff73);
+          background-repeat: no-repeat;
+        }
+        #printout{
+          border: 1px solid red;
+          margin-left: 20px;
+        }
+        #steps{
+          display: flex;
+          justify-content: center;
+          font-style: italic;
+          font-size: 25px;
+          border: 1px solid green;
+          margin-top: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body onload="showPage(1);">
+    <div id="page1" class="page">
+      <nav class="navbar navbar-expand-sm navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Stepster</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Stepmeter<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menu
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">History</a>
+                <a class="dropdown-item" href="#">Themes</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">About Stepster</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Settings</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+      <div id="fullScreen">
+        <div class="flex-container" id="steps">
+          Current steps:
+          <div id="printout">0</div>
+        </div>
+      </div>
+  </body>
+</html>
