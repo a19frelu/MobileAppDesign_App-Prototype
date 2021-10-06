@@ -120,6 +120,12 @@
         hammertime.on("swiperight", function(event) { swipe(-1) });
         hammertime.on("swipeleft", function(event) { swipe(1) });
       }
+
+      function init()
+      {
+        showPage(1);
+        initHammer();
+      }
     </script>
 
     <style>
@@ -285,7 +291,7 @@
     }
     </style>
   </head>
-  <body onload="showPage(1); initHammer();">
+  <body onload="init();">
     <div id="application">
       <div id="pageclicker" class="clicker">
         <div class="leftclicker" onclick="swipe(-1)">&lt;</div>
