@@ -117,8 +117,8 @@
       {
         var element = document.getElementById("application");
         var hammertime = Hammer(element);
-        hammertime.on("swiperight", function(event) { swipe(-1) });
-        hammertime.on("swipeleft", function(event) { swipe(1) });
+        hammertime.on("swiperight", function(event) { showPage(2) });
+        hammertime.on("swipeleft", function(event) { showPage(3) });
       }
 
       function init()
@@ -294,8 +294,8 @@
   <body onload="init();">
     <div id="application">
       <div id="pageclicker" class="clicker">
-        <div class="leftclicker" onclick="swipe(-1)">&lt;</div>
-        <div class="rightclicker" onclick="swipe(1)">&gt;</div>
+        <div class="leftclicker" onclick="showPage(3)">&lt;</div>
+        <div class="rightclicker" onclick="showPage(2);">&gt;</div>
       </div>
       <div id="page1" class="page">
         <nav class="navbar navbar-expand-sm navbar navbar-dark bg-primary">
@@ -440,17 +440,17 @@
             <h4>- One Step At A Time</h4>
             <br>
             <h6>
-The Stepster application is a tool for people who want to keep track of their everyday exercise.
+              The Stepster application is a tool for people who want to keep track of their everyday exercise.
             </h6>
             <br>
             <p class="hidden">
-It is the perfect companion for those who care about their well being, but dont have the time, interest or motivation to keep update themselves in the old-fashioned analog pen and paper-ish way.
+              It is the perfect companion for those who care about their well being, but dont have the time, interest or motivation to keep update themselves in the old-fashioned analog pen and paper-ish way.
             </p>
             <p class="hidden">
-The application is made with the thought of simplicity and minimalistic design which gives the user less settings to remember and learn with the opportunity to fully concentrate on the everyday life instead.
+              The application is made with the thought of simplicity and minimalistic design which gives the user less settings to remember and learn with the opportunity to fully concentrate on the everyday life instead.
             </p>
             <p>
-The application is made by me Fredrik Lundgren as a result of the course "Mobilapplikationsdesign".
+              The application is made by me Fredrik Lundgren as a result of the course "Mobilapplikationsdesign".
             </p>
           </div>
         </div>
