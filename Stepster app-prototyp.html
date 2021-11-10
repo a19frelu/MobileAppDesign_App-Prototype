@@ -38,6 +38,7 @@
         var stegraknare = 0;
         var element = document.getElementById("steps");
         var pageNr;
+        console.log(p);
 
         shaker.on("step", function (o) {
           stegraknare ++;
@@ -129,6 +130,28 @@
         return pageNr;
       }
 
+      function clickNextPage(){ 
+        if(pageNr >= 4){ 
+          pageNr = 1;
+          showPage(pageNr);
+        }else if (pageNr < 4 || pageNr === 1){
+          pageNr++;
+          showPage(pageNr);
+        }
+        return pageNr;                                    
+      }
+
+      function clickPreviousPage(){                         
+        if(pageNr <= 1){
+          pageNr = 4;
+          showPage(pageNr);
+        } else if (pageNr === 4 || pageNr >= 1){
+          pageNr--;
+          showPage(pageNr);
+        }
+        return pageNr;
+      }
+
       function initHammer()
       {
         var element = document.getElementById("application");
@@ -153,6 +176,7 @@
         body{
           background-repeat: no-repeat;
           background-color: #ebebeb;
+          font-style: Helvetica;
         }
         #fullscreen{
           margin-top: -12px;
@@ -182,8 +206,8 @@
         .page{position:fixed;left:0%;top:0%;width:100%;height:100%;z-index:200;opacity:1;}
 
         .clicker{position:absolute;left:0px;width:100%;top:35%;height:30%;z-index:600;display:flex;justify-content:space-between;align-items:center;}
-        .leftclicker{font-size:30px;}
-        .rightclicker{font-size:30px;}
+        .leftclicker{font-size:50px;}
+        .rightclicker{font-size:50px;}
 
         @keyframes inleft {0% { left: -100%; } 100% { left: 0%;} }
         @keyframes inright {0% { left: 100%; } 100% { left: 0%;} }
@@ -211,8 +235,8 @@
           text-align: center;
           margin-top: 200px;
         }
-        .licence{
-          margin-top: 10px;
+        .license{
+          margin-top: 50px;
           font-size: 10px;
         }
         h3{
@@ -258,8 +282,8 @@
         .page{position:fixed;left:0%;top:0%;width:100%;height:100%;z-index:200;opacity:1;}
 
         .clicker{position:absolute;left:0px;width:100%;top:35%;height:30%;z-index:600;display:flex;justify-content:space-between;align-items:center;}
-        .leftclicker{font-size:30px;}
-        .rightclicker{font-size:30px;}
+        .leftclicker{font-size:50px;}
+        .rightclicker{font-size:50px;}
 
         @keyframes inleft {0% { left: -100%; } 100% { left: 0%;} }
         @keyframes inright {0% { left: 100%; } 100% { left: 0%;} }
@@ -290,8 +314,8 @@
         text-align: center;
         margin-top: 50px;
       }
-      .licence{
-        margin-top: 10px;
+      .license{
+        margin-top: 50px;
       }
       h2{
         text-align: center;
@@ -311,8 +335,8 @@
   <body onload="init();">
     <div id="application">
       <div id="pageclicker" class="clicker">
-        <div class="leftclicker" onclick="showPage(3)">&lt;</div>
-        <div class="rightclicker" onclick="showPage(2);">&gt;</div>
+        <div class="leftclicker" onclick="clickPreviousPage()">&lt;</div>
+        <div class="rightclicker" onclick="clickNextPage()">&gt;</div>
       </div>
       <div id="page1" class="page">
         <nav class="navbar navbar-expand-sm navbar navbar-dark bg-primary">
@@ -389,8 +413,8 @@
             </figure>
           </div>
         </div>
-        <div class="licence">
-          <a href="https://www.needpix.com/photo/download/1027178/technical-support-tech-support-technical-service-repair-maintenance-technician-center">The symbol has no known licence</a>
+        <div class="license">
+          <a href="https://www.needpix.com/photo/download/1027178/technical-support-tech-support-technical-service-repair-maintenance-technician-center">The symbol has no known license</a>
         </div>
       </div>
       <div id="page3" class="page">
