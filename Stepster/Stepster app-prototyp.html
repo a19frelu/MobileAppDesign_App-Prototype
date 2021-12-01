@@ -130,6 +130,7 @@
         return pageNr;
       }
 
+      // Function that shows the next page when clicking the "greater-than (&gt)" sign.
       function clickNextPage(){ 
         if(pageNr >= 4){ 
           pageNr = 1;
@@ -141,6 +142,7 @@
         return pageNr;                                    
       }
 
+      // Function that shows the previous page when clicking the "less-than (&lt)" sign.
       function clickPreviousPage(){                         
         if(pageNr <= 1){
           pageNr = 4;
@@ -160,6 +162,7 @@
         hammertime.on("swipeleft", function(event) { showPage(findSwipePageNr("left")) });
       }
 
+      // Function that executes other functions when page-body loads.
       function init()
       {
         pageNr = 1;        
@@ -168,6 +171,7 @@
       }
     </script>
 
+    <!----------------############### Styling used in the Stepster app. ###############---------------->
     <style>
       @media screen and (orientation: portrait){
         html {
@@ -290,46 +294,46 @@
         @keyframes outleft {0% { left: 0%; } 100% { left: -100%;} }
         @keyframes outright {0% { left: 0%; } 100% { left: 100%;} }
 
-      .paper {
-        background-color: #ffffff;
-        padding:10px;
-        position: absolute;
-        top:40px;
-        left: 40px;
-        right: 40px;
-        box-shadow: 0px 2px 4px rgba(0,0,0,0.30), 3px 3px 10px rgba(0,0,0,0.22);
-        margin-bottom: 40px;
-        margin-top: 50px;
+        .paper {
+          background-color: #ffffff;
+          padding:10px;
+          position: absolute;
+          top:40px;
+          left: 40px;
+          right: 40px;
+          box-shadow: 0px 2px 4px rgba(0,0,0,0.30), 3px 3px 10px rgba(0,0,0,0.22);
+          margin-bottom: 40px;
+          margin-top: 50px;
+        }
+        .hidden{
+          display: none;
+        }
+        .inmaking{
+          font-size: 150%;
+          margin-top: 10px;
+        }
+        .maintenance{
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          margin-top: 50px;
+        }
+        .license{
+          margin-top: 50px;
+        }
+        h2{
+          text-align: center;
+        }
+        h3{
+          font-family: serif;
+          font-size: 150%;
+          text-align: center;
+          margin-top: 120px;
+        }
+        h4{
+          text-align: center;
+        }
       }
-      .hidden{
-        display: none;
-      }
-      .inmaking{
-        font-size: 150%;
-        margin-top: 10px;
-      }
-      .maintenance{
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        margin-top: 50px;
-      }
-      .license{
-        margin-top: 50px;
-      }
-      h2{
-        text-align: center;
-      }
-      h3{
-        font-family: serif;
-        font-size: 150%;
-        text-align: center;
-        margin-top: 120px;
-      }
-      h4{
-        text-align: center;
-      }
-    }
     </style>
   </head>
   <body onload="init();">
